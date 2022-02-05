@@ -10,12 +10,12 @@ const io = new Server(server, {
     origin: "*",
     credentials: true
   }
-})
+});
 
 app.use(cors());
-
-server.listen(port, () => console.log('RODANDO'));
 
 io.on('connection', (socket) => {
   socket.on('Teste', (info) => console.log(info))
 });
+
+server.listen(port, () => console.log('RODANDO'));
