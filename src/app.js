@@ -13,11 +13,13 @@ const socketIoServer = require('http').createServer(app);
 
 const io = require('socket.io')(socketIoServer, socketOptions);
 
-io.on('connection', (socket) => {
+const onConnection = (socket) => {
   console.log(`Usuario de id ${socket.id} conectado`)
 
-  socket.on('Teste', (info) => console.log(info))
-});
+  socket.on('message', (info) => console.log(info))
+} 
+
+io.on('connection', onConnection);
 
 app.get('/ping', (req, res) => {
   res.status(200).json({ message: 'pong!' })
