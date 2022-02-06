@@ -11,7 +11,7 @@ const io = socketIo(socketIoServer, socketOptions);
 const onConnection = (socket) => {
   console.log(`Usuario de id ${socket.id} conectado`);
 
-  socket.on('message', (info) => console.log(info))
+  socket.on('USER_CONNECTED', (info) => console.log(info))
 } 
 
 io.on('connection', onConnection);
