@@ -18,6 +18,7 @@ const userSchema = new Schema(
       required: [true, 'Password is required'],
       minlength: [8, 'Password is too short'],
     },
+    status: String,
     messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
   },
   { 
